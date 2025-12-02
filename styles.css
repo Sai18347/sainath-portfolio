@@ -13,6 +13,7 @@ body {
     background-color: #ffffff;
     color: #000;
     transition: background 0.3s, color 0.3s;
+     font-size: 1.2rem; /* Adjusts based on screen size */
 }
 
 /* Dark Mode */
