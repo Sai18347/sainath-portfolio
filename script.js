@@ -23,23 +23,65 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-
 function toggleChat() {
-    document.getElementById("chatbox").style.display = 
-        document.getElementById("chatbox").style.display === "flex" ? "none" : "flex";
+  const chatbox = document.getElementById("chatbox");
+  chatbox.style.display =
+    chatbox.style.display === "flex" ? "none" : "flex";
 }
 
 function sendMessage() {
-    let input = document.getElementById("chatInput");
-    let message = input.value.trim();
-    if (message) {
-        let chatboxMessages = document.querySelector(".chatbox-messages");
-        let newMessage = document.createElement("div");
-        newMessage.textContent = message;
-        chatboxMessages.appendChild(newMessage);
-        input.value = "";
-    }
+  const input = document.getElementById("chatInput");
+  const message = input.value.trim();
+  if (!message) return;
+
+  addMessage(message, "user");
+  input.value = "";
+
+  setTimeout(() => botReply(message), 500);
 }
+
+function addMessage(text, sender) {
+  const messages = document.getElementById("chatMessages");
+  const div = document.createElement("div");
+  div.className = sender === "user" ? "user-msg" : "bot-msg";
+  div.textContent = text;
+  messages.appendChild(div);
+  messages.scrollTop = messages.scrollHeight;
+}
+
+function botReply(msg) {
+  let reply =
+    "Sorry, I didn’t understand that. Try asking about skills, projects, or contact.";
+
+  msg = msg.toLowerCase();
+
+  if (msg.includes("skill"))
+    reply = "I specialize in HTML, CSS, MS Excel, Power BI, SQL, and Python."
+
+  else if (msg.includes("project"))
+    reply = "Projects include portfolio website, Revenue Management Dashboard, Chocolate Sales Dashboard, Company Payroll Tracker, Melanoma Skin Cancer Detection.";
+
+  else if (msg.includes("contact"))
+    reply = "You can contact Sainath via email or LinkedIn provided on this portfolio.";
+
+  else if (msg.includes("about"))
+    reply = "Sainath is a passionate Data Analyist, Fcrontend developer and aspiring software engineer.";
+
+  addMessage(reply, "bot");
+}
+
+
+// function sendMessage() {
+//     let input = document.getElementById("chatInput");
+//     let message = input.value.trim();
+//     if (message) {
+//         let chatboxMessages = document.querySelector(".chatbox-messages");
+//         let newMessage = document.createElement("div");
+//         newMessage.textContent = message;
+//         chatboxMessages.appendChild(newMessage);
+//         input.value = "";
+//     }
+// }
 
 document.addEventListener("DOMContentLoaded", function () {
     const titleElement = document.querySelector(".typing-title");

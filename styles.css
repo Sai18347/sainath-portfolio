@@ -237,7 +237,7 @@ header {
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    object-fit: cover;
+    object-fit: fill;
     opacity: 0;
     transform: scale(0.8);
     animation: fadeIn 2s ease-in-out forwards;
@@ -284,7 +284,7 @@ header {
 }
 
  /* Chat Icon */
-.chat-icon {
+/* .chat-icon {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -302,7 +302,7 @@ header {
 }
 
 /* Chatbox */
-.chatbox {
+/* .chatbox {
     position: fixed;
     bottom: 80px;
     right: 20px;
@@ -352,6 +352,93 @@ header {
     margin-left: 5px;
     cursor: pointer;
     border-radius: 5px;
+} */
+
+/* ================= CHATBOT ================= */
+
+.chat-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff4c60;
+  color: white;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 9999;
+}
+
+/* Chatbox */
+.chatbox {
+  position: fixed;
+  bottom: 85px;
+  right: 20px;
+  width: 320px;
+  height: 420px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  display: none;
+  flex-direction: column;
+  z-index: 9999;
+}
+
+.chatbox-header {
+  background: #ff4c60;
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 12px 12px 0 0;
+}
+
+.chatbox-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+.user-msg {
+  text-align: right;
+  margin: 8px 0;
+  color: #000;
+}
+
+.bot-msg {
+  text-align: left;
+  margin: 8px 0;
+  color: #ff4c60;
+}
+
+.chatbox-input {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.chatbox-input input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+}
+
+.chatbox-input button {
+  background: #ff4c60;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-left: 5px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 
@@ -523,7 +610,7 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, blue, red, skyblue);
+    background: linear-gradient(to bottom, #ff4d4d, #d10000);
     background-size: 300% 300%;
     z-index: -1;
     animation: gradientBG 5s infinite alternate;
@@ -587,7 +674,7 @@ header {
 
 .education-card {
     width: 27%;
-    background: linear-gradient(45deg, red, blue, skyblue);
+    background: linear-gradient(to bottom, #ff4d4d, #d10000);
     padding: 20px;
     border-radius: 10px;
     color: white;
@@ -640,7 +727,7 @@ header {
 
 .certificate-card {
     width: 27%;
-    background: linear-gradient(45deg, purple, blue, skyblue);
+    background: linear-gradient(45deg, rgb(251, 73, 73), red, rgb(196, 117, 109));
     padding: 20px;
     border-radius: 10px;
     color: white;
@@ -696,7 +783,7 @@ header {
 
 .experience-card {
     width: 40%;
-    background: linear-gradient(45deg, red, blue, skyblue);
+    background: linear-gradient(45deg, red, rgba(216, 28, 28, 0.93), rgb(156, 69, 69));
     padding: 20px;
     border-radius: 10px;
     color: white;
